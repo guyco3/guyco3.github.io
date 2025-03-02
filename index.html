@@ -59,5 +59,17 @@ Relevant Coursework: Data Structures & Algorithms, Machine Learning, Natural Lan
 <strong>Libraries:</strong> Posix, Pytorch, NumPy, Matplotlib, Pandas, LangGraph<br>
 <strong>Tools & OS:</strong> Git, Linux, Slack</p>
 
-<p><a href="/https://github.com/guyco3">githubs</a></p>
+<h3>Recent Blog Posts</h3>
+<ul>
+  {% for post in site.posts limit:3 %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <p>{{ post.date | date_to_string }}</p>
+    </li>
+  {% endfor %}
+</ul>
+<p><a href="/blog">View all blog posts</a></p>
+
+
+<p><a href="//https://github.com/guyco3">githubs</a></p>
 
