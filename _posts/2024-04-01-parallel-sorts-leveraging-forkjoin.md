@@ -1,6 +1,8 @@
 ---
 title: "Parallel Sorts: Harnessing the Power of ForkJoin"
 date: 2024-04-01
+tags: java forkjoin parallelism sorting algorithms
+author: Guy Cohen
 ---
 
 Today, I'm excited to share my work on implementing parallel versions of common sorting algorithms using Java's ForkJoin framework.

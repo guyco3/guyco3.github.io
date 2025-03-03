@@ -1,6 +1,8 @@
 ---
 title: "Mlib: A Fast C-based Linear Algebra Library"
 date: 2024-08-01
+tags: pytorch C matrix math python
+author: Guy Cohen
 ---
 
 I'm excited to share my latest project: Mlib, a C-based linear algebra library with a Python wrapper. This library is designed to efficiently create and manipulate m-dimensional arrays, complete with built-in auto differentiation.

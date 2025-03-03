@@ -1,6 +1,8 @@
 ---
 title: "TorchCode: A Platform for Practicing Neural Network Implementations"
 date: 2024-07-01
+tags: pytorch deep-learning neural-networks education coding-practice
+author: Guy Cohen
 ---
 
 I'm thrilled to announce the launch of TorchCode, a Leetcode-style website for practicing the implementation of neural network layers using PyTorch.
