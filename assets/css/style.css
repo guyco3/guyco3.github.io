@@ -63,14 +63,15 @@ h2 {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  color: #333;
+  color: #ecf0f1;
+  background-color: #2c3e50;
   text-decoration: none;
   border-radius: 3px;
   transition: background-color 0.3s ease;
 }
 
 .view-all:hover {
-  background-color: #2980b9;
+
 }
 
 /* Social Links Styles */
