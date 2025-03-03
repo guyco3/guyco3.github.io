@@ -1,6 +1,8 @@
 ---
 title: "Optimal Placement of Fences DP Algo"
 date: 2025-03-02
+tags: dynamic_programming algorithms
+author: Guy Cohen
 ---
 
 ```py
