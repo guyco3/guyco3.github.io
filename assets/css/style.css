@@ -86,3 +86,15 @@ footer {
     }
 }
 
+.fab {
+  font-size: 30px;
+  color: #333;
+  margin-right: 10px;
+}
+.fa-github:hover {
+  color: #4078c0;
+}
+.fa-linkedin:hover {
+  color: #0077b5;
+}
+
