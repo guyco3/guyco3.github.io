@@ -1,4 +1,5 @@
 ---
+layout: posts
 title: "Parallel Sorts: Harnessing the Power of ForkJoin"
 date: 2024-04-01
 tags: java forkjoin parallelism sorting algorithms
