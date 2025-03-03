@@ -5,6 +5,9 @@ date: 2024-04-01
 tags: java forkjoin parallelism sorting algorithms
 author: Guy Cohen
 ---
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum voluptates, voluptatem voluptatibus doloremque, cumque quasi aliquid rerum animi culpa vitae natus odio tenetur mollitia, incidunt at fugit ratione non iusto. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum voluptates, voluptatem voluptatibus doloremque, cumque quasi aliquid rerum animi culpa vitae natus odio tenetur mollitia, incidunt at fugit ratione non iusto.
+
+
 
 Today, I'm excited to share my work on implementing parallel versions of common sorting algorithms using Java's ForkJoin framework.
 

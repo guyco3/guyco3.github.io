@@ -6,6 +6,8 @@ tags: pytorch deep-learning neural-networks education coding-practice
 author: Guy Cohen
 ---
 
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum voluptates, voluptatem voluptatibus doloremque, cumque quasi aliquid rerum animi culpa vitae natus odio tenetur mollitia, incidunt at fugit ratione non iusto. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum voluptates, voluptatem voluptatibus doloremque, cumque quasi aliquid rerum animi culpa vitae natus odio tenetur mollitia, incidunt at fugit ratione non iusto.
+
 I'm thrilled to announce the launch of TorchCode, a Leetcode-style website for practicing the implementation of neural network layers using PyTorch.
 
 TorchCode is built with a modern tech stack including:
