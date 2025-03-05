@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: default
 title: "Parallel Sorts Using Java's ForkJoin"
 date: 2024-04-01
 tags: java forkjoin parallelism sorting algorithms

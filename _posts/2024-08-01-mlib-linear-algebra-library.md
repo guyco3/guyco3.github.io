@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: default
 title: "Mlib: A Fast C-based Linear Algebra Library"
 date: 2024-08-01
 tags: pytorch C matrix math python

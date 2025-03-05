@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: default
 title: "TorchCode: A Platform for Practicing Neural Network Implementations"
 date: 2024-07-01
 tags: pytorch deep-learning neural-networks education coding-practice
