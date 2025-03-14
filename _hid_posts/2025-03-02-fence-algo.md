@@ -6,6 +6,8 @@ tags: dynamic_programming algorithms
 author: Guy Cohen
 ---
 
+Hello there!
+
 I was presented with this cool DP problem while working on the homework for CSE421 @ UW. Here is the problem description:
 
 You are helping out a hobby farmer in a very flat area who has a property with n very heavy-duty fence-posts sunk in concrete on the perimeter of the property at locations given by coordinates v1=(x1,y1),..., vn=(xn,yn). They have installed straight-line fencing between adjacent fence-posts vi and vi+1 for every i as well as between vn and v1. Wherever you are inside the fenced off area you can see every bit of the exterior fencing.
