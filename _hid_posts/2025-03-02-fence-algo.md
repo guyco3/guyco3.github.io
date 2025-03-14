@@ -6,7 +6,7 @@ tags: dynamic_programming algorithms
 author: Guy Cohen
 ---
 
-Hello there!
+Hello!
 
 I was presented with this cool DP problem while working on the homework for CSE421 @ UW. Here is the problem description:
 
