@@ -1,6 +1,3 @@
-my-approach-to-leetcode-2226-maximum-candies-allocated-to-k-children
-
-
 ---
 layout: default
 title: "My Approach to Leetcode 2226. Maximum Candies Allocated to K Children"
