@@ -1,0 +1,605 @@
+/* notebook.css — extracted notebook / paper theme styles */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Inconsolata:wght@400;700&display=swap');
+
+:root{
+  --paper-bg: #fffdf5;
+  --accent: #2b2b2b;
+  --muted: #6b6b6b;
+  --line-color: rgba(0,0,0,0.06);
+  --max-width: 900px;
+  --body-bg: #ffffff;
+  --grid-color: rgba(0,0,0,0.06);
+  /* Pastel sticky note colors with good contrast for black text */
+  --pastel-green: #d4f4dd;
+  --pastel-red: #ffd4d4;
+  --pastel-blue: #d4e4ff;
+  --pastel-orange: #ffe4c4;
+}
+
+/* Dark theme colors */
+:root[data-theme="dark"] {
+  --paper-bg: #ffffff;
+  --accent: #2b2b2b;
+  --muted: #6b6b6b;
+  --line-color: rgba(0,0,0,0.06);
+  --body-bg: #1a1a1a;
+  --grid-color: rgba(255,255,255,0.05);
+  /* White sticky notes in dark mode */
+  --pastel-green: #ffffff;
+  --pastel-red: #ffffff;
+  --pastel-blue: #ffffff;
+  --pastel-orange: #ffffff;
+}
+
+/* Base page tweaks - keep existing background (your grid) visible */
+body {
+  font-family: 'Patrick Hand', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: var(--accent);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.45;
+  padding: 2rem 1rem;
+}
+
+/* Grid-paper background: subtle black & white ruled grid */
+body {
+  background-color: var(--body-bg);
+  /* two repeating linear gradients create a square grid */
+  background-image:
+    repeating-linear-gradient(0deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent 30px),
+    repeating-linear-gradient(90deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent 30px);
+  background-size: auto;
+  background-position: 0 0, 0 0;
+  background-attachment: fixed;
+  transition: background-color 0.3s ease;
+}
+
+.notebook{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Each section appears as a paper 'blob' pinned to the notebook */
+section.paper {
+  background: var(--paper-bg);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  border-left: 6px solid rgba(0,0,0,0.06);
+  position: relative;
+  transform-origin: center left;
+  transition: transform 180ms ease;
+}
+
+/* Random pastel sticky note colors for each section */
+.notebook section.paper:nth-of-type(1){ transform: rotate(-1.2deg); background: var(--pastel-green); }
+.notebook section.paper:nth-of-type(2){ transform: rotate(0.9deg); background: var(--pastel-blue); }
+.notebook section.paper:nth-of-type(3){ transform: rotate(-0.6deg); background: var(--pastel-orange); }
+.notebook section.paper:nth-of-type(4){ transform: rotate(1.1deg); background: var(--pastel-red); }
+.notebook section.paper:nth-of-type(5){ transform: rotate(-0.4deg); background: var(--pastel-green); }
+.notebook section.paper:nth-of-type(6){ transform: rotate(0.7deg); background: var(--pastel-blue); }
+.notebook section.paper:nth-of-type(7){ transform: rotate(-0.9deg); background: var(--pastel-orange); }
+.notebook section.paper:nth-of-type(8){ transform: rotate(0.5deg); background: var(--pastel-red); }
+
+/* Hover brings the paper up slightly */
+section.paper:hover{ transform: translateY(-6px) rotate(0deg); box-shadow: 0 18px 30px rgba(0,0,0,0.18); }
+
+/* Notebook ruled lines inside paper: subtle horizontal rule background */
+section.paper::before{
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, transparent 0px, transparent 27px, rgba(0,0,0,0.02) 28px);
+  background-size: 100% 28px;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 10px;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+/* Left margin rule like a notebook */
+section.paper::after{
+  content: '';
+  position: absolute;
+  left: 46px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(200,30,30,0.12), rgba(200,30,30,0.06));
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 2px;
+}
+
+/* Bring content above the paper pseudo backgrounds */
+section.paper *{ position: relative; z-index: 2; }
+
+h2{ font-size: 1.6rem; margin: 0 0 0.4rem; }
+h3{ font-size: 1.05rem; margin-top: 0.8rem; }
+
+p, li { font-size: 1.05rem; color: var(--accent); }
+.muted { color: var(--muted); }
+
+/* code block styling to look like a pencil note */
+.markdown-like{ background: transparent; padding: 0.6rem; border-radius: 6px; font-family: 'Inconsolata', monospace; color: #111; box-shadow:none; }
+.markdown-like pre, .markdown-like code { white-space: pre-wrap; }
+
+/* weather list and small utilities */
+#weather-list .hour { 
+  padding: 0.75rem 0; 
+  border-bottom: 1px dashed rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+}
+
+.weather-icons-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.weather-icon-svg {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+}
+
+.weather-icon-svg path,
+.weather-icon-svg circle,
+.weather-icon-svg line,
+.weather-icon-svg polyline,
+.weather-icon-svg polygon {
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  /* Hand-drawn wobble animation */
+  animation: wobble 3s ease-in-out infinite;
+}
+
+.weather-icon-svg .icon-fill {
+  fill: var(--accent);
+  opacity: 0.15;
+}
+
+.weather-icon-svg .sun-fill {
+  fill: #ffd700;
+  opacity: 0.6;
+}
+
+.weather-icon-svg .rain-drop {
+  stroke: #4a90e2;
+  fill: #4a90e2;
+  opacity: 0.7;
+}
+
+.weather-icon-svg .snow-flake {
+  stroke: #b0c4de;
+  fill: none;
+}
+
+.weather-icon-svg .fog-line {
+  stroke: #95a5a6;
+  opacity: 0.6;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-0.5deg) translateY(0); }
+  25% { transform: rotate(0.5deg) translateY(-1px); }
+  50% { transform: rotate(-0.3deg) translateY(0); }
+  75% { transform: rotate(0.3deg) translateY(1px); }
+}
+
+.weather-time {
+  font-weight: 600;
+  min-width: 140px;
+  font-size: 1.1rem;
+}
+
+.weather-details {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1.15rem;
+}
+
+.weather-temp, .weather-condition, .weather-wind {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.view-all { display:inline-block; margin-top:0.5rem; color:var(--accent); text-decoration:underline; }
+
+/* Responsive tweaks */
+@media (max-width: 640px){
+  :root{ --max-width: 560px; }
+  section.paper{ padding: 1rem; }
+}
+
+/* Header Styles - Minimal transparent navbar with theme toggle */
+header {
+  background-color: transparent;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: transparent;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg) scale(1.1);
+  border-color: #3498db;
+}
+
+.theme-toggle:active {
+  transform: rotate(0deg) scale(0.95);
+}
+
+.theme-icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-icon path,
+.theme-icon circle,
+.theme-icon line {
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.theme-icon .sun-center {
+  fill: #ffd700;
+  stroke: var(--accent);
+  opacity: 0.6;
+}
+
+.theme-icon .moon-shape {
+  fill: #ffffff;
+  stroke: #ffffff;
+  opacity: 1;
+}
+
+/* Show sun icon in light mode, moon in dark mode */
+:root[data-theme="light"] .moon-icon {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+:root[data-theme="light"] .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+:root[data-theme="dark"] .sun-icon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+:root[data-theme="dark"] .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 1rem;
+}
+
+header nav ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #3498db;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+:root[data-theme="dark"] footer {
+  color: #ffffff !important;
+}
+
+:root[data-theme="dark"] footer p {
+  color: #ffffff !important;
+}
+
+/* Social icon adjustments */
+#social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#social-links h2 {
+  width: 100%;
+  text-align: left;
+}
+
+#social-links .social-links-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  font-size: 5rem;
+  color: #2c3e50;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #3498db;
+  transform: scale(1.1);
+}
+
+/* Experience Timeline Styles */
+#experience h2 {
+  color: var(--accent);
+}
+
+:root[data-theme="dark"] #experience h2 {
+  color: #ffffff;
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+  margin: 1rem 0;
+}
+
+/* Dotted vertical line connecting experiences */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--accent) 0px,
+    var(--accent) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+
+:root[data-theme="dark"] .timeline::before {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #ffffff 0px,
+    #ffffff 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+.timeline-item {
+  position: relative;
+  margin: 2.5rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* Alternate left and right positioning */
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-date {
+  flex: 0 0 35%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 0.5rem;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+  justify-content: flex-start;
+}
+
+.date-badge {
+  display: inline-block;
+  background: var(--paper-bg);
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transform: rotate(-2deg);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+
+.timeline-content {
+  flex: 0 0 55%;
+  background: var(--paper-bg);
+  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  border: 2px solid var(--accent);
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-item:nth-child(1) .timeline-content { transform: rotate(1deg); }
+.timeline-item:nth-child(2) .timeline-content { transform: rotate(-1.5deg); }
+.timeline-item:nth-child(3) .timeline-content { transform: rotate(0.8deg); }
+.timeline-item:nth-child(4) .timeline-content { transform: rotate(-0.6deg); }
+.timeline-item:nth-child(5) .timeline-content { transform: rotate(1.2deg); }
+
+.timeline-content:hover {
+  transform: rotate(0deg) translateY(-4px) !important;
+  box-shadow: 6px 6px 18px rgba(0,0,0,0.2);
+}
+
+/* Small dot connector on the timeline */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border: 3px solid var(--paper-bg);
+  border-radius: 50%;
+  top: 1.5rem;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+  left: -2.5rem;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+  right: -2.5rem;
+}
+
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.company-logo {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 6px;
+  padding: 0.3rem;
+  background: white;
+}
+
+.experience-header > div {
+  flex: 1;
+}
+
+.experience-header h3 {
+  margin: 0 0 0.2rem 0;
+}
+
+.experience-header .company {
+  margin: 0;
+}
+
+.timeline-content h3 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.timeline-content .company {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0 0 0.8rem 0;
+  font-weight: 600;
+}
+
+.timeline-content ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.timeline-content li {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: column;
+    padding-left: 50px;
+  }
+  
+  .timeline-date {
+    flex: 1;
+    justify-content: flex-start !important;
+    padding-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-content {
+    flex: 1;
+    width: 100%;
+  }
+  
+  .timeline-content::before {
+    left: -2.5rem !important;
+  }
+}
+
+nav {
+    background-color: none;
+}
