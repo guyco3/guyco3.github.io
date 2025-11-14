@@ -39,6 +39,7 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.45;
   padding: 2rem 1rem;
+  position: relative;
 }
 
 /* Grid-paper background: subtle black & white ruled grid */
@@ -237,6 +238,87 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+header * {
+  pointer-events: auto;
+}
+
+#drawing-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 1002;
+}
+
+.draw-control {
+    background: transparent;
+    border: 3px solid var(--accent);
+    border-radius: 12px;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+:root[data-theme="dark"] .draw-control {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.draw-control:hover {
+    transform: translateY(-3px);
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.draw-control.active {
+    background-color: var(--accent);
+    color: var(--paper-bg);
+    border-color: var(--accent);
+}
+
+:root[data-theme="dark"] .draw-control.active {
+    background-color: #ffffff;
+    color: var(--body-bg);
+    border-color: #ffffff;
+}
+
+#drawing-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    pointer-events: none; /* Initially disabled */
+    user-select: none;
+}
+
+body.drawing-mode,
+body.erasing-mode {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+body.drawing-mode * {
+    cursor: crosshair !important;
+}
+
+body.erasing-mode * {
+    cursor: cell !important;
 }
 
 /* Theme toggle button */
@@ -253,6 +335,7 @@ header {
   justify-content: center;
   transition: all 0.3s ease;
   position: relative;
+  z-index: 1002;
 }
 
 .theme-toggle:hover {
@@ -324,6 +407,7 @@ header nav ul {
   padding: 0;
   margin: 0;
   display: flex;
+  justify-content: end;
 }
 
 header nav ul li {

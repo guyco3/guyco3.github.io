@@ -28,12 +28,14 @@
         </button>
     </header>
 
+    <canvas id="drawing-canvas"></canvas>
+
     <main>
         <script src="assets/js/site.js" defer></script>
   <div class="notebook">
   <section id="about" class="paper">
     <h2>Welcome to My GitHub Pages Site</h2>
-    <p>Hello! I'm Guy, a computer science researcher at the University of Washington. I enjoy working on optimization problems, algorithms, and backend technology.</p>
+    <p>Hello! I'm Guy, a computer science researcher at the University of Washington. I enjoy working on distributed systems, algorithms, and optimization problems.</p>
   </section>
 
   <section id="skills" class="paper">
@@ -102,6 +104,7 @@
           <li>Azure</li>
           <li>GCP</li>
           <li>Docker</li>
+          <li>MultiPaxos</li>
         </ul>
       </div>
       <div class="skill-category">
@@ -126,55 +129,91 @@
 
       <div class="timeline-item">
         <div class="timeline-date">
-          <span class="date-badge">Aug. 2026 - Present</span>
+          <span class="date-badge">Oct. 2022 – Dec. 2022</span>
         </div>
         <div class="timeline-content">
           <div class="experience-header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Expedia_Logo_2023.svg" alt="Expedia" class="company-logo">
+            <img src="https://inabia.com/inabia-new/wp-content/uploads/2024/10/logo-inabia-white.png" alt="Inabia" class="company-logo">
             <div>
-              <h3>Data Engineer</h3>
-              <p class="company">Expedia Group • Seattle, WA</p>
+              <h3>Data Science Intern</h3>
+              <p class="company">Inabia Solutions & Consulting Inc. • Redmond, WA</p>
             </div>
           </div>
           <ul>
-            <li>Joined back!</li>
+            <li>My first internship!</li>
+            <li>Finetuned models and automated data pipelines</li>
           </ul>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-date">
-          <span class="date-badge">Dec. 2025</span>
+          <span class="date-badge">Jun. 2023</span>
+        </div>
+        <div class="timeline-content">
+          <div class="experience-header">
+            <img src="https://www.bellevuecollege.edu/wp-content/uploads/sites/23/2019/12/PRI_BC_Bulldog-Head_CMYK.png" alt="BC" class="company-logo">
+            <div>
+              <h3>Running Start</h3>
+              <p class="company">Bellevue College • Bellevue, WA</p>
+            </div>
+          </div>
+          <ul>
+            <li>Finished my last class at my favorite school :(</li>
+          </ul>
+        </div>
+      </div>
+
+       <div class="timeline-item">
+        <div class="timeline-date">
+          <span class="date-badge">Sep. 2023</span>
         </div>
         <div class="timeline-content">
           <div class="experience-header">
             <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Washington_Huskies_logo.svg" alt="UW" class="company-logo">
             <div>
-              <h3>Graduation</h3>
+              <h3>Starting my undergrad journey</h3>
               <p class="company">University of Washington • Seattle, WA</p>
             </div>
           </div>
           <ul>
-            <li>Completed my Bachelor's degree in Computer Science</li>
-            <li>Finished my last class ever as an undergrad, CSE 452 Distributed Systems :0</li>
+            <li>Took my first CS classes at UW: Discrete Math and Hardware & Software Interface</li>
           </ul>
         </div>
       </div>
-      
+
       <div class="timeline-item">
         <div class="timeline-date">
-          <span class="date-badge">Jun. 2025 – Aug. 2025</span>
+          <span class="date-badge">Oct. 2024 – Nov. 2024</span>
         </div>
         <div class="timeline-content">
           <div class="experience-header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Expedia_Logo_2023.svg" alt="Expedia" class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Washington_Huskies_logo.svg" alt="UW" class="company-logo">
             <div>
-              <h3>Data Engineer Intern</h3>
-              <p class="company">Expedia Group • Seattle, WA</p>
+              <h3>Mentor</h3>
+              <p class="company">CSEED Buildspace @ UW • Seattle, WA</p>
             </div>
           </div>
           <ul>
-            <li>Developed notification service for real-time workforce metrics</li>
+            <li>Helped students build cool stuff :)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">
+          <span class="date-badge">Sep. 2024 – Dec. 2024</span>
+        </div>
+        <div class="timeline-content">
+          <div class="experience-header">
+            <img src="https://appexchange.salesforce.com/image_host/2170dced-8905-4f5c-8595-5cf3d38fbee4.png" alt="Worknet" class="company-logo">
+            <div>
+              <h3>Software Engineer Intern</h3>
+              <p class="company">Worknet • Seattle, WA</p>
+            </div>
+          </div>
+          <ul>
+            <li>Developed agent chatbots for customer support</li>
           </ul>
         </div>
       </div>
@@ -200,90 +239,55 @@
 
       <div class="timeline-item">
         <div class="timeline-date">
-          <span class="date-badge">Sep. 2024 – Dec. 2024</span>
+          <span class="date-badge">Jun. 2025 – Aug. 2025</span>
         </div>
         <div class="timeline-content">
           <div class="experience-header">
-            <img src="https://appexchange.salesforce.com/image_host/2170dced-8905-4f5c-8595-5cf3d38fbee4.png" alt="Worknet" class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Expedia_Logo_2023.svg" alt="Expedia" class="company-logo">
             <div>
-              <h3>Software Engineer Intern</h3>
-              <p class="company">Worknet • Seattle, WA</p>
+              <h3>Data Engineer Intern</h3>
+              <p class="company">Expedia Group • Seattle, WA</p>
             </div>
           </div>
           <ul>
-            <li>Developed agent chatbots for customer support</li>
+            <li>Developed notification service for real-time workforce metrics</li>
           </ul>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-date">
-          <span class="date-badge">Oct. 2024 – Nov. 2024</span>
+          <span class="date-badge">Dec. 2025</span>
         </div>
         <div class="timeline-content">
           <div class="experience-header">
             <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Washington_Huskies_logo.svg" alt="UW" class="company-logo">
             <div>
-              <h3>Mentor</h3>
-              <p class="company">CSEED Buildspace @ UW • Seattle, WA</p>
-            </div>
-          </div>
-          <ul>
-            <li>Helped students build cool stuff :)</li>
-          </ul>
-        </div>
-      </div>
-
-       <div class="timeline-item">
-        <div class="timeline-date">
-          <span class="date-badge">Sep. 2023</span>
-        </div>
-        <div class="timeline-content">
-          <div class="experience-header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Washington_Huskies_logo.svg" alt="UW" class="company-logo">
-            <div>
-              <h3>Starting my undergrad journey</h3>
+              <h3>Graduation</h3>
               <p class="company">University of Washington • Seattle, WA</p>
             </div>
           </div>
           <ul>
-            <li>Took my first CS classes at UW: Discrete Math and Hardware & Software Interface</li>
+            <li>Completed my Bachelor's degree in Computer Science</li>
+            <li>Finished my last class ever as an undergrad, CSE 452 Distributed Systems :0</li>
           </ul>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-date">
-          <span class="date-badge">Jun. 2023</span>
+          <span class="date-badge">Aug. 2026 - Present</span>
         </div>
         <div class="timeline-content">
           <div class="experience-header">
-            <img src="https://www.bellevuecollege.edu/wp-content/uploads/sites/23/2019/12/PRI_BC_Bulldog-Head_CMYK.png" alt="BC" class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Expedia_Logo_2023.svg" alt="Expedia" class="company-logo">
             <div>
-              <h3>Running Start</h3>
-              <p class="company">Bellevue College • Bellevue, WA</p>
+              <h3>Data Engineer</h3>
+              <p class="company">Expedia Group • Seattle, WA</p>
             </div>
           </div>
           <ul>
-            <li>Finished my last class at my favorite school :(</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">
-          <span class="date-badge">Oct. 2022 – Dec. 2022</span>
-        </div>
-        <div class="timeline-content">
-          <div class="experience-header">
-            <img src="https://inabia.com/inabia-new/wp-content/uploads/2024/10/logo-inabia-white.png" alt="Inabia" class="company-logo">
-            <div>
-              <h3>Data Science Intern</h3>
-              <p class="company">Inabia Solutions & Consulting Inc. • Redmond, WA</p>
-            </div>
-          </div>
-          <ul>
-            <li>Finetuned models and automated data pipelines</li>
+            <li>I will let you know when I start ;)</li>
           </ul>
         </div>
       </div>
@@ -315,8 +319,6 @@
     </div>
   </section>
 
-  <!-- CSS is in _layouts/default.html; site behavior in /assets/js/site.js -->
-
   </div>
 
 
@@ -344,6 +346,7 @@
             localStorage.setItem('theme', newTheme);
         });
     </script>
+    <script src="/assets/js/drawing.js"></script>
 </body>
 </html>
 
