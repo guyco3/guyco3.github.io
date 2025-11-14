@@ -158,7 +158,6 @@
       const weatherIconSvg = getWeatherIcon(desc);
       
       let detailsHTML = '<div class="weather-details">';
-      detailsHTML += `<span class="weather-time">${time}</span>`;
       
       if (tempText) {
         detailsHTML += `<span class="weather-temp">${tempIcon} ${tempText}</span>`;
@@ -173,7 +172,7 @@
       div.innerHTML = detailsHTML;
       container.appendChild(div);
     });
-    statusEl.textContent = 'Updated: ' + new Date().toLocaleString();
+    statusEl.textContent = '';
   }
 
   // Try to find a periods-like array anywhere in the JSON response.
@@ -274,7 +273,6 @@
     
     // Build HTML with icons integrated into their respective sections
     let detailsHTML = '<div class="weather-details">';
-    detailsHTML += `<span class="weather-time">${time}</span>`;
     
     if (tempText) {
       detailsHTML += `<span class="weather-temp">${tempIcon} ${tempText}</span>`;
@@ -292,16 +290,58 @@
     
     div.innerHTML = detailsHTML;
     container.appendChild(div);
-    statusEl.textContent = 'Updated: ' + new Date().toLocaleString();
+    statusEl.textContent = '';
   }
 
   document.addEventListener('DOMContentLoaded', function(){
     const weatherStatus = document.getElementById('weather-status');
     const weatherList = document.getElementById('weather-list');
-    if (!weatherStatus || !weatherList) return; // nothing to do on pages without elements
+    const timeDisplay = document.getElementById('time-display');
 
-    // initial fetch + refresh every 1 minute
-    fetchWeatherHourly(weatherStatus, weatherList);
-    setInterval(() => fetchWeatherHourly(weatherStatus, weatherList), 1 * 60 * 1000);
+    function updateTime() {
+      if (timeDisplay) {
+        const now = new Date();
+        const timeZone = 'America/Los_Angeles';
+        const options = {
+          timeZone,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true,
+        };
+        timeDisplay.textContent = now.toLocaleTimeString('en-US', options);
+      }
+    }
+
+    function renderSkillIcons() {
+      const icons = {
+        'icon-languages': `<svg viewBox="0 0 100 100"><path d="M30 80 L40 20 L50 20 L60 80 M25 80 L65 80 M45 50 L55 50" class="icon-fill"/></svg>`,
+        'icon-frontend': `<svg viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="40" rx="5" class="icon-fill"/><line x1="20" y1="42" x2="80" y2="42"/><line x1="30" y1="30" x2="30" y2="70"/></svg>`,
+        'icon-backend': `<svg viewBox="0 0 100 100"><rect x="30" y="20" width="40" height="15" rx="3" class="icon-fill"/><rect x="30" y="42" width="40" height="15" rx="3" class="icon-fill"/><rect x="30" y="64" width="40" height="15" rx="3" class="icon-fill"/><line x1="50" y1="35" x2="50" y2="42"/><line x1="50" y1="57" x2="50" y2="64"/></svg>`,
+        'icon-data': `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="30" rx="25" ry="10" class="icon-fill"/><path d="M25 30 C25 45 75 45 75 30"/><path d="M25 45 C25 60 75 60 75 45"/><path d="M25 60 C25 75 75 75 75 60"/></svg>`,
+        'icon-cloud': `<svg viewBox="0 0 100 100"><path d="M25,60 Q25,50 35,50 Q35,40 45,40 Q50,35 55,40 Q65,40 65,50 Q75,50 75,60 Q75,70 65,70 L35,70 Q25,70 25,60 Z" class="icon-fill"/></svg>`,
+        'icon-ai': `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" class="icon-fill"/><line x1="50" y1="40" x2="50" y2="20"/><line x1="50" y1="60" x2="50" y2="80"/><line x1="40" y1="50" x2="20" y2="50"/><line x1="60" y1="50" x2="80" y2="50"/><line x1="35" y1="35" x2="25" y2="25"/><line x1="65" y1="65" x2="75" y2="75"/><line x1="35" y1="65" x2="25" y2="75"/><line x1="65" y1="35" x2="75" y2="25"/></svg>`
+      };
+
+      for (const id in icons) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.innerHTML = icons[id];
+        }
+      }
+    }
+
+    if (timeDisplay) {
+      updateTime();
+      setInterval(updateTime, 1000);
+    }
+
+    renderSkillIcons();
+
+    if (weatherStatus && weatherList) {
+      // initial fetch + refresh every 5 minutes    
+      fetchWeatherHourly(weatherStatus, weatherList);
+      setInterval(() => fetchWeatherHourly(weatherStatus, weatherList), 5 * 60 * 1000);
+    }
   });
 })();

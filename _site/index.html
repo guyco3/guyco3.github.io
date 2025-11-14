@@ -36,16 +36,130 @@
     <p>Hello! I'm Guy, a computer science researcher at the University of Washington. I enjoy working on optimization problems, algorithms, and backend technology.</p>
   </section>
 
-
-   <section id="seattle-weather" class="card paper">
-    <h2>My current hourly forecast: Seattle</h2>
-    <div id="weather-status">Loading latest hourly forecast...</div>
-    <div id="weather-list"></div>
+  <section id="skills" class="paper">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-category-header">
+          <div class="skill-icon" id="icon-languages"></div>
+          <h3>Languages</h3>
+        </div>
+        <ul>
+          <li>Python</li>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>SQL</li>
+          <li>Java</li>
+          <li>C <- this is better than the thing below</li>
+          <li>C++</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-header">
+          <div class="skill-icon" id="icon-frontend"></div>
+          <h3>Frontend</h3>
+        </div>
+        <ul>
+          <li>React</li>
+          <li>Tailwind</li>
+          <li>HTML</li>
+          <li>CSS</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-header">
+          <div class="skill-icon" id="icon-backend"></div>
+          <h3>Backend & APIs</h3>
+        </div>
+        <ul>
+          <li>Node.js</li>
+          <li>Express</li>
+          <li>Flask</li>
+          <li>Springboot</li>
+          <li>FastAPI</li>
+          <li>GraphQL</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-header">
+          <div class="skill-icon" id="icon-data"></div>
+          <h3>Data</h3>
+        </div>
+        <ul>
+          <li>SQLite</li>
+          <li>Postgres</li>
+          <li>MongoDB</li>
+          <li>Kafka</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-header">
+          <div class="skill-icon" id="icon-cloud"></div>
+          <h3>Cloud/DevOps</h3>
+        </div>
+        <ul>
+          <li>AWS</li>
+          <li>Azure</li>
+          <li>GCP</li>
+          <li>Docker</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-header">
+          <div class="skill-icon" id="icon-ai"></div>
+          <h3>AI/ML</h3>
+        </div>
+        <ul>
+          <li>PyTorch</li>
+          <li>NumPy</li>
+          <li>Matplotlib</li>
+          <li>LangGraph</li>
+          <li>CrewAI</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section id="experience">
-    <h2>Experience</h2>
+    <h2>My Journey</h2>
     <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">
+          <span class="date-badge">Aug. 2026 - Present</span>
+        </div>
+        <div class="timeline-content">
+          <div class="experience-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Expedia_Logo_2023.svg" alt="Expedia" class="company-logo">
+            <div>
+              <h3>Data Engineer</h3>
+              <p class="company">Expedia Group • Seattle, WA</p>
+            </div>
+          </div>
+          <ul>
+            <li>Joined back!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">
+          <span class="date-badge">Dec. 2025</span>
+        </div>
+        <div class="timeline-content">
+          <div class="experience-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Washington_Huskies_logo.svg" alt="UW" class="company-logo">
+            <div>
+              <h3>Graduation</h3>
+              <p class="company">University of Washington • Seattle, WA</p>
+            </div>
+          </div>
+          <ul>
+            <li>Completed my Bachelor's degree in Computer Science</li>
+            <li>Finished my last class ever as an undergrad, CSE 452 Distributed Systems :0</li>
+          </ul>
+        </div>
+      </div>
       
       <div class="timeline-item">
         <div class="timeline-date">
@@ -60,10 +174,7 @@
             </div>
           </div>
           <ul>
-            <li>Developed notification builder UI and backend for real-time alerts used by 500+ internal users, speeding up the average notification creation process (draft, review, feedback, and approval) by 85%.</li>
-            <li>Reduced UI load times by 41% through client-side caching.</li>
-            <li>Resolved a critical production bug caused by AWS Lambda policy capacity limits by redesigning the notification creation workflow with a one-to-many policy–EventBridge rule mapping, decreasing memory required by 33%.</li>
-            <li>Developed authorization flow and middleware for user and admin versions of the notifications builder.</li>
+            <li>Developed notification service for real-time workforce metrics</li>
           </ul>
         </div>
       </div>
@@ -82,7 +193,7 @@
           </div>
           <ul>
             <li>Created Block, a Python library for visualizing and evaluating magnetic configurations for programmable materials research.</li>
-            <li>Developed encoding method for magnetic configurations and interactions, enabling continuous evaluation functions and improving assessment accuracy by 13%.</li>
+      
           </ul>
         </div>
       </div>
@@ -100,8 +211,7 @@
             </div>
           </div>
           <ul>
-            <li>Designed and implemented 7+ LLM tools for a customer-facing chatbot, improving information output accuracy by 70%.</li>
-            <li>Lowered system error rates by 40% via robust error handling and automated human-in-the-loop checks.</li>
+            <li>Developed agent chatbots for customer support</li>
           </ul>
         </div>
       </div>
@@ -119,7 +229,43 @@
             </div>
           </div>
           <ul>
-            <li>Mentored 50+ students on 15 project teams in web and ML engineering, with 90% of the teams meeting their project goals.</li>
+            <li>Helped students build cool stuff :)</li>
+          </ul>
+        </div>
+      </div>
+
+       <div class="timeline-item">
+        <div class="timeline-date">
+          <span class="date-badge">Sep. 2023</span>
+        </div>
+        <div class="timeline-content">
+          <div class="experience-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Washington_Huskies_logo.svg" alt="UW" class="company-logo">
+            <div>
+              <h3>Starting my undergrad journey</h3>
+              <p class="company">University of Washington • Seattle, WA</p>
+            </div>
+          </div>
+          <ul>
+            <li>Took my first CS classes at UW: Discrete Math and Hardware & Software Interface</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">
+          <span class="date-badge">Jun. 2023</span>
+        </div>
+        <div class="timeline-content">
+          <div class="experience-header">
+            <img src="https://www.bellevuecollege.edu/wp-content/uploads/sites/23/2019/12/PRI_BC_Bulldog-Head_CMYK.png" alt="BC" class="company-logo">
+            <div>
+              <h3>Running Start</h3>
+              <p class="company">Bellevue College • Bellevue, WA</p>
+            </div>
+          </div>
+          <ul>
+            <li>Finished my last class at my favorite school :(</li>
           </ul>
         </div>
       </div>
@@ -137,8 +283,7 @@
             </div>
           </div>
           <ul>
-            <li>Improved NER model F1 score by 9% for 16+ PII types by refining data pipelines.</li>
-            <li>Reduced data labeling time by 6x through building a Python automation script, enabling weekly model retraining.</li>
+            <li>Finetuned models and automated data pipelines</li>
           </ul>
         </div>
       </div>
@@ -146,7 +291,22 @@
     </div>
   </section>
 
-    <section id="social-links" class="paper">
+  <section id="facts" class="card paper">
+    <h2>Some facts from my location:</h2>
+  </section>
+
+     <section id="seattle-weather" class="card paper">
+    <h2>Weather in Seattle</h2>
+    <div id="weather-status">Loading latest hourly forecast...</div>
+    <div id="weather-list"></div>
+  </section>
+
+  <section id="seattle-time" class="card paper">
+    <h2>local time in Seattle</h2>
+    <div id="time-display" style="font-size: 2rem; text-align: center; font-family: 'Inconsolata', monospace;"></div>
+  </section>
+
+    <section id="social-links">
     <h2>Connect with Me</h2>
     <div class="social-links-container">
       <a href="https://github.com/guyco3" class="social-icon"><i class="fab fa-github"></i></a>
