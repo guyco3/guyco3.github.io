@@ -23,7 +23,7 @@ title: Home
           <li>TypeScript</li>
           <li>SQL</li>
           <li>Java</li>
-          <li>C <- this is better than the thing below</li>
+          <li>C <- best one</li>
           <li>C++</li>
         </ul>
       </div>
@@ -91,6 +91,77 @@ title: Home
           <li>CrewAI</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <!-- Scrolling Toy Car Break -->
+  <section id="car-break" class="car-container">
+    <div class="toy-car">
+      <svg viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
+        <!-- Car body - hand drawn style with wobbly lines -->
+        <path d="M 15 35 Q 14 34 15 33 L 18 33 Q 19 32 20 33 L 30 33 Q 31 32 32 33 L 32 20 Q 31 19 32 18 L 40 18 Q 41 17 42 18 L 70 18 Q 71 17 72 18 L 72 33 Q 73 32 74 33 L 85 33 Q 86 32 87 33 L 90 33 Q 91 34 90 35 L 90 45 Q 91 46 90 47 L 15 47 Q 14 46 15 45 Z" 
+              fill="#ff6b6b" 
+              stroke="#2b2b2b" 
+              stroke-width="2.5" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"/>
+        
+        <!-- Windows with sketchy style -->
+        <path d="M 38 23 Q 37 22 38 21 L 50 21 Q 51 22 50 23 L 50 30 Q 51 31 50 32 L 38 32 Q 37 31 38 30 Z" 
+              fill="#87ceeb" 
+              stroke="#2b2b2b" 
+              stroke-width="2" 
+              opacity="0.7"/>
+        <path d="M 55 23 Q 54 22 55 21 L 67 21 Q 68 22 67 23 L 67 30 Q 68 31 67 32 L 55 32 Q 54 31 55 30 Z" 
+              fill="#87ceeb" 
+              stroke="#2b2b2b" 
+              stroke-width="2" 
+              opacity="0.7"/>
+        
+        <!-- Left wheel -->
+        <g class="wheel-left" transform-origin="30 50">
+          <circle cx="30" cy="50" r="10" 
+                  fill="#333" 
+                  stroke="#2b2b2b" 
+                  stroke-width="2.5"/>
+          <circle cx="30" cy="50" r="5" 
+                  fill="#666" 
+                  stroke="#2b2b2b" 
+                  stroke-width="2"/>
+          <line x1="30" y1="45" x2="30" y2="40" 
+                stroke="#2b2b2b" 
+                stroke-width="2" 
+                stroke-linecap="round"/>
+        </g>
+        
+        <!-- Right wheel -->
+        <g class="wheel-right" transform-origin="75 50">
+          <circle cx="75" cy="50" r="10" 
+                  fill="#333" 
+                  stroke="#2b2b2b" 
+                  stroke-width="2.5"/>
+          <circle cx="75" cy="50" r="5" 
+                  fill="#666" 
+                  stroke="#2b2b2b" 
+                  stroke-width="2"/>
+          <line x1="75" y1="45" x2="75" y2="40" 
+                stroke="#2b2b2b" 
+                stroke-width="2" 
+                stroke-linecap="round"/>
+        </g>
+        
+        <!-- Headlight -->
+        <circle cx="88" cy="38" r="4" 
+                fill="#ffeb3b" 
+                stroke="#2b2b2b" 
+                stroke-width="2"/>
+        
+        <!-- Door handle sketch -->
+        <line x1="52" y1="35" x2="58" y2="35" 
+              stroke="#2b2b2b" 
+              stroke-width="2" 
+              stroke-linecap="round"/>
+      </svg>
     </div>
   </section>
 
@@ -258,7 +329,7 @@ title: Home
             </div>
           </div>
           <ul>
-            <li>I will let you know when I start ;)</li>
+            <li>;)</li>
           </ul>
         </div>
       </div>
@@ -267,7 +338,7 @@ title: Home
   </section>
 
   <section id="facts" class="card paper">
-    <h2>Some facts from my location:</h2>
+    <h2>Some facts from me:</h2>
   </section>
 
      <section id="seattle-weather" class="card paper">
@@ -281,6 +352,17 @@ title: Home
     <div id="time-display" style="font-size: 2rem; text-align: center; font-family: 'Inconsolata', monospace;"></div>
   </section>
 
+  <section id="iss-location" class="card paper">
+    <h2>International Space Station Location</h2>
+    <div id="iss-status">Loading ISS position...</div>
+    <div id="iss-data" style="font-family: 'Inconsolata', monospace; font-size: 1.1rem; margin-top: 1rem;">
+      <div style="margin-bottom: 0.5rem;"><strong>Latitude:</strong> <span id="iss-lat">--</span>°</div>
+      <div style="margin-bottom: 0.5rem;"><strong>Longitude:</strong> <span id="iss-lon">--</span>°</div>
+      <div style="margin-bottom: 0.5rem;"><strong>Last Updated:</strong> <span id="iss-time">--</span></div>
+    </div>
+  </section>
+
+  
     <section id="social-links">
     <h2>Connect with Me</h2>
     <div class="social-links-container">

@@ -234,17 +234,140 @@ p, li { font-size: 1.05rem; color: var(--accent); }
 header {
   background-color: transparent;
   padding: 1.5rem 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   z-index: 1000;
   pointer-events: none;
 }
 
 header * {
   pointer-events: auto;
+}
+
+/* Folder Tab Navigation */
+.folder-tab-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.folder-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: transparent;
+  padding: 0;
+  pointer-events: auto;
+  max-width: 700px;
+  width: 100%;
+  justify-content: center;
+  margin: 0;
+}
+
+.folder-tab {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  background: var(--paper-bg);
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid var(--accent);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.folder-tab::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--paper-bg);
+  z-index: 1;
+}
+
+.folder-tab:hover {
+  transform: translateY(2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: var(--pastel-blue);
+}
+
+.folder-tab:active {
+  transform: translateY(1px);
+}
+
+/* Active/current page styling */
+.folder-tab.active,
+.folder-tab:focus {
+  background: var(--pastel-green);
+  transform: translateY(4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Add top padding to body to account for fixed navbar */
+body {
+  padding-top: 4rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  header {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    left: 0;
+    right: 0;
+    justify-content: center;
+  }
+  
+  body {
+    padding-top: 8rem;
+  }
+  
+  .folder-tabs {
+    max-width: 100%;
+    gap: 0.25rem;
+  }
+  
+  .folder-tab {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding-top: 4.5rem;
+    padding-bottom: 2rem;
+  }
+  
+  body {
+    padding-top: 9rem;
+  }
+  
+  .folder-tab {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.85rem;
+  }
 }
 
 #drawing-controls {
@@ -823,4 +946,54 @@ footer {
 
 nav {
     background-color: none;
+}
+
+/* Scrolling Toy Car */
+.car-container {
+  position: relative;
+  height: 120px;
+  margin: 2rem 0;
+  overflow: visible;
+}
+
+.toy-car {
+  position: relative;
+  left: 0;
+  top: 50%;
+  width: 120px;
+  height: 70px;
+  transform: translateY(-50%);
+  transition: left 0.05s linear;
+}
+
+.toy-car svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Wheel rotation animation - rotate around wheel centers */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.toy-car svg .wheel-left,
+.toy-car svg .wheel-right {
+  animation: spin 0.6s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .car-container {
+    height: 80px;
+  }
+  
+  .toy-car {
+    width: 90px;
+    height: 52px;
+  }
 }
