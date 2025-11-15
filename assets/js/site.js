@@ -344,80 +344,65 @@
       setInterval(() => fetchWeatherHourly(weatherStatus, weatherList), 5 * 60 * 1000);
     }
 
-    // Scrolling Toy Car Animation
-    const carContainer = document.querySelector('.car-container');
-    const toyCar = document.querySelector('.toy-car');
-    
-    if (carContainer && toyCar) {
-      function updateCarPosition() {
-        const containerRect = carContainer.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        // Calculate progress as section moves through viewport
-        // When section top is at bottom of screen: progress = 0
-        // When section bottom is at top of screen: progress = 1
-        const sectionHeight = containerRect.height;
-        const visibleRange = windowHeight + sectionHeight;
-        const scrolled = windowHeight - containerRect.top;
-        const progress = Math.max(0, Math.min(1, scrolled / visibleRange));
-        
-        // Move car from left edge to right edge based on progress
-        const containerWidth = carContainer.offsetWidth;
-        const carWidth = toyCar.offsetWidth;
-        const maxPosition = containerWidth - carWidth;
-        const carPosition = progress * maxPosition;
-        
-        toyCar.style.left = `${carPosition}px`;
-      }
-      
-      // Update on scroll
-      window.addEventListener('scroll', updateCarPosition);
-      // Update on resize
-      window.addEventListener('resize', updateCarPosition);
-      // Initial position
-      updateCarPosition();
-    }
+    // Dad Joke API
+    const jokeStatus = document.getElementById('joke-status');
+    const jokeText = document.getElementById('joke-text');
+    const newJokeBtn = document.getElementById('new-joke-btn');
 
-    // ISS Location Tracking
-    const issStatus = document.getElementById('iss-status');
-    const issLat = document.getElementById('iss-lat');
-    const issLon = document.getElementById('iss-lon');
-    const issTime = document.getElementById('iss-time');
-
-    async function fetchISSLocation() {
-      if (!issStatus || !issLat || !issLon || !issTime) return;
+    async function fetchDadJoke() {
+      if (!jokeStatus || !jokeText) return;
       
       try {
-        issStatus.textContent = 'Fetching ISS position...';
-        const res = await fetch('http://api.open-notify.org/iss-now.json');
+        jokeStatus.textContent = 'Loading joke...';
+        jokeText.textContent = '';
+        
+        const res = await fetch('https://icanhazdadjoke.com/', {
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
         
         if (!res.ok) throw new Error('Network response not ok: ' + res.status);
         
         const data = await res.json();
         
-        if (data.message === 'success' && data.iss_position) {
-          const lat = parseFloat(data.iss_position.latitude).toFixed(4);
-          const lon = parseFloat(data.iss_position.longitude).toFixed(4);
-          const timestamp = new Date(data.timestamp * 1000);
-          
-          issLat.textContent = lat;
-          issLon.textContent = lon;
-          issTime.textContent = timestamp.toLocaleString();
-          issStatus.textContent = '';
+        if (data.joke) {
+          jokeText.textContent = data.joke;
+          jokeStatus.textContent = '';
         } else {
-          issStatus.textContent = 'Unexpected data format';
+          jokeStatus.textContent = 'No joke found';
         }
       } catch (err) {
-        issStatus.textContent = 'Failed to fetch ISS location: ' + err.message;
-        console.error('fetchISSLocation error', err);
+        jokeStatus.textContent = 'Failed to fetch joke: ' + err.message;
+        console.error('fetchDadJoke error', err);
       }
     }
 
-    if (issStatus && issLat && issLon && issTime) {
+    if (jokeStatus && jokeText) {
       // Initial fetch
-      fetchISSLocation();
-      // Refresh every 1 minute
-      setInterval(fetchISSLocation, 1 * 60 * 1000);
+      fetchDadJoke();
+      
+      // Add click handler and hover effect for refresh icon
+      if (newJokeBtn) {
+        newJokeBtn.addEventListener('click', fetchDadJoke);
+        
+        // Add rotation on hover
+        newJokeBtn.addEventListener('mouseenter', function() {
+          this.style.transform = 'rotate(180deg)';
+        });
+        
+        newJokeBtn.addEventListener('mouseleave', function() {
+          this.style.transform = 'rotate(0deg)';
+        });
+        
+        // Add rotation on click
+        newJokeBtn.addEventListener('click', function() {
+          this.style.transform = 'rotate(360deg)';
+          setTimeout(() => {
+            this.style.transform = 'rotate(0deg)';
+          }, 300);
+        });
+      }
     }
   });
 })();

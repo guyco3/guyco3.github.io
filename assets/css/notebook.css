@@ -40,6 +40,7 @@ body {
   line-height: 1.45;
   padding: 2rem 1rem;
   position: relative;
+  overflow-x: hidden;
 }
 
 /* Grid-paper background: subtle black & white ruled grid */
@@ -55,10 +56,15 @@ body {
   transition: background-color 0.3s ease;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 .notebook{
   max-width: var(--max-width);
   margin: 0 auto;
   position: relative;
+  overflow-x: hidden;
 }
 
 /* Each section appears as a paper 'blob' pinned to the notebook */
@@ -72,6 +78,8 @@ section.paper {
   position: relative;
   transform-origin: center left;
   transition: transform 180ms ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Random pastel sticky note colors for each section */
@@ -946,54 +954,4 @@ footer {
 
 nav {
     background-color: none;
-}
-
-/* Scrolling Toy Car */
-.car-container {
-  position: relative;
-  height: 120px;
-  margin: 2rem 0;
-  overflow: visible;
-}
-
-.toy-car {
-  position: relative;
-  left: 0;
-  top: 50%;
-  width: 120px;
-  height: 70px;
-  transform: translateY(-50%);
-  transition: left 0.05s linear;
-}
-
-.toy-car svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-}
-
-/* Wheel rotation animation - rotate around wheel centers */
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.toy-car svg .wheel-left,
-.toy-car svg .wheel-right {
-  animation: spin 0.6s linear infinite;
-}
-
-@media (max-width: 768px) {
-  .car-container {
-    height: 80px;
-  }
-  
-  .toy-car {
-    width: 90px;
-    height: 52px;
-  }
 }
