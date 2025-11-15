@@ -241,7 +241,7 @@ header {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 998;
   pointer-events: none;
 }
 
@@ -293,6 +293,7 @@ header * {
   flex: 1;
   text-align: center;
   min-width: 0;
+  z-index: 1500;
 }
 
 .folder-tab::before {
@@ -458,7 +459,6 @@ body.erasing-mode * {
   justify-content: center;
   transition: all 0.3s ease;
   position: relative;
-  z-index: 1002;
 }
 
 .theme-toggle:hover {

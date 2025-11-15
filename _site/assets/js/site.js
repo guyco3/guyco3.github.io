@@ -416,8 +416,8 @@
     if (issStatus && issLat && issLon && issTime) {
       // Initial fetch
       fetchISSLocation();
-      // Refresh every 5 minutes
-      setInterval(fetchISSLocation, 5 * 60 * 1000);
+      // Refresh every 1 minute
+      setInterval(fetchISSLocation, 1 * 60 * 1000);
     }
   });
 })();
